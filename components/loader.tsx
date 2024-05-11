@@ -10,7 +10,7 @@ export const Loader = () => {
             src="/logo.png"
             />
         </div>
-        <p className="text-sm text-muted-foreground">AI-SaaS App is thinking</p>
+        <p className="text-sm text-muted-foreground">Rachel is thinking</p>
     </div>
   )
 }

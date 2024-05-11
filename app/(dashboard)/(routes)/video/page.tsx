@@ -31,6 +31,7 @@ const VideoPage = () => {
     try {
       setVideo(undefined);
       const response = await axios.post("/api/video", values);
+      console.log(response.data)
       setVideo(response.data);
       form.reset();
     } catch (error) {

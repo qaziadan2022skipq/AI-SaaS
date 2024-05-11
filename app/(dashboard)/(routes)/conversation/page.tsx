@@ -18,10 +18,15 @@ import { Loader } from "@/components/loader";
 import { cn } from "@/lib/utils";
 import { UserAvatar } from "@/components/user-avatar";
 import { BotAvatar } from "@/components/bot-avatar";
+import { useProModal } from "@/hooks/user-pro-modal";
 
 const Conversation = () => {
+  const proModal = useProModal();
   const router = useRouter();
-  const [messages, setMessages] = useState<ChatCompletionMessageParam[]>([]);
+  const [messages, setMessages] = useState<ChatCompletionMessageParam[]>([{
+    role: "system",
+    content:"Hello I am Rachel, Ask anything...."
+  }]);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -44,8 +49,9 @@ const Conversation = () => {
       });
       setMessages((current) => [...current, userMessage, response.data]);
       form.reset();
-    } catch (error) {
+    } catch (error: any) {
       // todo: Open Pro Modal
+      if (error.response.status === 403) proModal.open();
       console.log(error);
     } finally {
       router.refresh();
@@ -54,7 +60,7 @@ const Conversation = () => {
   return (
     <div>
       <Heading
-        title="Conversation"
+        title="Chat with Rachel"
         description="The most advance conversation model"
         icon={MessageSquare}
         iconColor="text-violet-500"
@@ -99,7 +105,7 @@ const Conversation = () => {
                 disabled={isLoading}
                 size="icon"
               >
-                Generate
+                Send
               </Button>
             </form>
           </Form>
@@ -114,18 +120,18 @@ const Conversation = () => {
             <Empty label="No conversation started." />
           )}
           <div className="flex flex-col-reverse gap-y-4">
-            {messages.map((message) => (
+            {messages.map((message, index) => (
               <div
-                key={message.content}
+                key={index}
                 className={cn(
-                  "p-8 w-full flex items-start gap-x-8 rounded-lg ",
+                  "p-6 w-full flex items-start gap-x-8 rounded-lg ",
                   message.role === "user"
                     ? "bg-white border border-black/10"
                     : "bg-muted"
                 )}
               >
                 {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
-                <p className="text-sm">{message.content}</p>
+                <p className="text-sm">{String(message.content)}</p>
               </div>
             ))}
           </div>

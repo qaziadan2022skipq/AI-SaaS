@@ -1,13 +1,19 @@
-import { LandingNavbar } from "@/components/landing-navbar";
 import { LandingHero } from "@/components/landing-hero";
-import { LandingContent } from "@/components/landing-content";
+import LandingPricing from "@/components/landing-pricing";
+import LandingNavbar from "@/components/new/landing-navbar";
+import FeatureSection from "@/components/new/Features";
+import Testimonials from "@/components/new/Testimonial";
+import Footer from "@/components/Footer";
 
 const LandingPage = () => {
   return ( 
-    <div className="h-full ">
+    <div className="h-full px-0 sm:px-2">
       <LandingNavbar />
       <LandingHero />
-      <LandingContent />
+      <FeatureSection />
+      <Testimonials />
+      <LandingPricing />
+      <Footer />
     </div>
    );
 }

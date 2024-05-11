@@ -5,22 +5,38 @@ import Link from "next/link";
 import { useAuth } from "@clerk/nextjs";
 
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export const LandingHero = () => {
   const { isSignedIn } = useAuth();
 
   return (
-    <div className="text-white font-bold py-36 text-center space-y-5">
-      <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl space-y-5 font-extrabold">
-        <h1>The Best AI Tool for</h1>
-        <div className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+    <div className="mt-24 lg:mt-0 text-white font-bold py-2 space-y-5 p-24 text-center items-center">
+      <div className="text-4xl sm:text-2xl md:text-6xl lg:text-7xl space-y-5 font-extrabold">
+        <div className="flex flex-col items-center">
+          <Image src="/RachelAvatar.png" width={200} height={200} alt="main" />
+          <h1 className="text-[#EEEEEE] font-bold">Meet Rachel</h1>
+          <h1 className="hidden md:block lg:block lg:text-4xl text-white mt-2 ">
+
+            Your Personal AI Companion
+          </h1>
+          <p className="text-lg mt-2 font-extralight text-neutral-400">
+          Enhance your personal life, business, and education with
+          </p>
+        </div>
+
+        <div className="text-4xl md:text-5xl lg:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-400 to-pink-600">
           <TypewriterComponent
             options={{
               strings: [
-                "Chatbot.",
+                "Chat with Rachel.",
+                "Easy Learning",
                 "Photo Generation.",
-                "Blog Writing.",
-                "Mail Writing."
+                "Cover Letter writing.",
+                "Email Writing.",
+                "Social Media Captions.",
+                "Text to Speech.",
+                "Chat with Image.",
               ],
               autoStart: true,
               loop: true,
@@ -28,13 +44,13 @@ export const LandingHero = () => {
           />
         </div>
       </div>
-      <div className="text-sm md:text-xl font-light text-zinc-400">
-        Create content using AI 10x faster.
+      <div className="text-sm md:text-xl lg:text-lg font-light text-zinc-400 mt-2">
+      Powered by super fast AI.
       </div>
       <div>
         <Link href={isSignedIn ? "/dashboard" : "/sign-up"}>
-          <Button variant="premium" className="md:text-lg p-4 md:p-6 rounded-full font-semibold">
-            Start Generating For Free
+          <Button variant={"premium"} className="md:text-lg p-2 px-8 lg:px-12 md:p-6 rounded-full mt-6 font-semibold bg-cyan-700 ring-1 ring-neutral-400 drop-shadow-xl">
+            Try for Free
           </Button>
         </Link>
       </div>

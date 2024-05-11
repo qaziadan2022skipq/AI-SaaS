@@ -1,3 +1,4 @@
+import { checkApiLimit, increaseAPiLimit } from "@/lib/api-limit";
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 import OpenAI from "openai/index.mjs";
@@ -23,10 +24,26 @@ export async function POST(req: Request) {
         if (!messages) {
             return new NextResponse("Messages are required", { status: 400 })
         }
+
+        const freeTrail = await checkApiLimit()
+
+        if(!freeTrail){
+            return new NextResponse("Free Trail has expired", {status: 403})
+        }
+
         const response = await openai.chat.completions.create({
             model: "gpt-3.5-turbo",
-            messages: [{ "role": "user", "content": messages[0].content }]
+            messages: [
+                { "role": "user", "content": `
+                You are a powerful AI Assistant and Your name is Rachel.
+                Answer all the question in female syles.
+                ` },
+                { "role": "user", "content": messages[0].content }
+            ]
         });
+
+        await increaseAPiLimit()
+        
         console.log(response)
         return NextResponse.json(response.choices[0].message, {status: 200})
 
