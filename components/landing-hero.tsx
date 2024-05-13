@@ -11,32 +11,33 @@ export const LandingHero = () => {
   const { isSignedIn } = useAuth();
 
   return (
-    <div className="mt-24 lg:mt-0 text-white font-bold py-2 space-y-5 p-24 text-center items-center">
+    <div id="home" className="mt-[4.5rem] lg:mt-0 text-white font-bold py-2 space-y-5 p-12 lg:p-24 text-center items-center">
       <div className="text-4xl sm:text-2xl md:text-6xl lg:text-7xl space-y-5 font-extrabold">
         <div className="flex flex-col items-center">
           <Image src="/RachelAvatar.png" width={200} height={200} alt="main" />
           <h1 className="text-[#EEEEEE] font-bold">Meet Rachel</h1>
-          <h1 className="hidden md:block lg:block lg:text-4xl text-white mt-2 ">
+          <h1 className=" md:block text-xl lg:block lg:text-4xl text-white mt-2 ">
 
-            Your Personal AI Companion
+            Your AI Companion
           </h1>
-          <p className="text-lg mt-2 font-extralight text-neutral-400">
+          <p className="text-lg mt-8 lg:mt-2 font-extralight text-neutral-400">
           Enhance your personal life, business, and education with
           </p>
         </div>
 
-        <div className="text-4xl md:text-5xl lg:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-400 to-pink-600">
+        <div className="text-4xl mt-6 lg:mt-0 md:text-5xl lg:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-400 to-pink-600">
           <TypewriterComponent
             options={{
               strings: [
-                "Chat with Rachel.",
+                "Chat with Rachel",
                 "Easy Learning",
-                "Photo Generation.",
-                "Cover Letter writing.",
-                "Email Writing.",
-                "Social Media Captions.",
-                "Text to Speech.",
-                "Chat with Image.",
+                "Photo Generation",
+                "Cover Letter writing",
+                "Email Writing",
+                "Social Media Captions",
+                "Text to Speech",
+                "Music Generator",
+                "Video Generator"
               ],
               autoStart: true,
               loop: true,

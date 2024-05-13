@@ -9,6 +9,7 @@ export const navItems = [
   { label: "Features", href: "#features" },
   { label: "Testimonials", href: "#testimonials" },
   { label: "Pricing", href: "#pricing" },
+  { label: "FAQs", href: "/faq" },
 ];
 
 export const testimonials = [
@@ -49,13 +50,12 @@ export const testimonials = [
     image: user4,
     text: "Rachel’s ability to change my mindset when I’m feeling down is remarkable. She encourages me to stay positive and productive, and I always feel better after our conversations.",
   },
-  
 ];
 
 interface features {
-    icon: string,
-    text: string,
-    description: string
+  icon: string;
+  text: string;
+  description: string;
 }
 
 export const features = [
@@ -66,17 +66,18 @@ export const features = [
       "Whether you need emotional support, help brainstorming business ideas, or assistance revising for your studies, you can count on Rachel to be there 24/7.",
   },
   {
+    icon: "2",
+    text: "Easy Learning",
+    description:
+      "Personal tutor providing learning through user-driven queries.",
+  },
+  {
     icon: "1",
     text: "Image Generator",
     description:
       "Instantly create visually stunning, custom and realistic images.",
   },
-  {
-    icon: "2",
-    text: "Easy Learning",
-    description:
-      "Learn any topic with ease.",
-  },
+
   {
     icon: "3",
     text: "Code Generator",
@@ -86,33 +87,28 @@ export const features = [
   {
     icon: "4",
     text: "Email Writer",
-    description:
-      "Draft effective emails for any business or personal context.",
+    description: "Draft effective emails for any business or personal context.",
   },
   {
     icon: "5",
     text: "Video Generator",
-    description:
-      "Create compelling video content that captures attention.",
+    description: "Create compelling video content that captures attention.",
   },
   ,
   {
     icon: "6",
     text: "Music Generator",
-    description:
-      "Create any kind of music with descriptive text.",
+    description: "Create any kind of music with descriptive text in seconds.",
   },
   {
     icon: "7",
     text: "Social Media Caption Generator",
-    description:
-      "Generate attarctive and engaging social media captions",
+    description: "Generate attarctive and engaging social media captions.",
   },
   {
     icon: "8",
     text: "Text to Speech",
-    description:
-      "Convert any text into speech in more than 6 tones.",
+    description: "Convert any text into speech in more than 6 tones.",
   },
 ];
 
@@ -143,31 +139,28 @@ export const pricingOptions = [
   {
     title: "Rachel Free",
     price: "$0",
-    features: [
-      "Limited Usage",
-      "No Support",
-    ],
+    features: ["Limited Usage", "No Support"],
   },
   {
     title: "Rachel Pro",
     price: "$20",
-    features: [
-      "Unlimited Usage",
-      "Priority Support",
-      "Exclusive Tools",
-    ],
+    features: ["Unlimited Usage", "Priority Support", "Exclusive Tools"],
   },
 ];
 
 export const resourcesLinks = [
-  // { href: "#", text: `Stay up-to-date with Rachel’s latest developments. 
-  // Subscribe for updates, 
+  // { href: "#", text: `Stay up-to-date with Rachel’s latest developments.
+  // Subscribe for updates,
   // or contact our support team for more information.` },
   { href: "#", text: "Contact@Rachel.app" },
 ];
 
 export const platformLinks = [
+  { href: "#home", text: "Home" },
   { href: "#features", text: "Features" },
+  { href: "#testimonials", text: "Testimonials" },
+  { href: "#pricing", text: "Pricing" },
+  { href: "/faq", text: "FAQs" },
 ];
 
 export const communityLinks = [

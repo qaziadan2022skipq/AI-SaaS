@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 
 const LandingPage = () => {
   return ( 
-    <div className="h-full px-0 sm:px-2">
+    <div className="h-full px-0 ">
       <LandingNavbar />
       <LandingHero />
       <FeatureSection />

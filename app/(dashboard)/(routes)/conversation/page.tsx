@@ -25,7 +25,7 @@ const Conversation = () => {
   const router = useRouter();
   const [messages, setMessages] = useState<ChatCompletionMessageParam[]>([{
     role: "system",
-    content:"Hello I am Rachel, Ask anything...."
+    content:"Hi I'm Rachel!"
   }]);
 
   const form = useForm<z.infer<typeof formSchema>>({

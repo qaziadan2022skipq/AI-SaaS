@@ -18,10 +18,12 @@ const LandingNavbar = () => {
     <nav className="sticky top-0 z-50 py-3 backdrop-blur-lg border-b border-neutral-700/80">
       <div className="container px-4 mx-auto relative lg:text-sm">
         <div className="flex justify-between items-center">
+          <Link href={"/"}>
           <div className="flex items-center flex-shrink-0">
             <Image className="h-10 w-10 mr-2" src={"/RachelAvatar.png"} width={100} height={100} alt="Logo" />
             <span className="text-2xl tracking-tight font-extrabold text-white">Rachel</span>
           </div>
+          </Link>
           <ul className="hidden lg:flex ml-14 space-x-12 text-white">
             {navItems.map((item, index) => (
               <li key={index}>
@@ -56,11 +58,11 @@ const LandingNavbar = () => {
               ))}
             </ul>
             <div className="flex flex-col gap-y-4">
-              <a href="#" className="py-2 px-3 border rounded-md text-center">
+              <a href="/sign-in" className="py-2 px-3 border rounded-md text-center">
                 Sign In
               </a>
               <a
-                href="#"
+                href="/sign-up"
                 className="py-2 px-3 rounded-md bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
               >
                 Create an account
