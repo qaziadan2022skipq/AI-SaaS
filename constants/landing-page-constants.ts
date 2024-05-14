@@ -154,7 +154,7 @@ export const resourcesLinks = [
   // { href: "#", text: `Stay up-to-date with Rachel’s latest developments.
   // Subscribe for updates,
   // or contact our support team for more information.` },
-  { href: "#", text: "Contact@Rachel.app" },
+  { href: "https://mail.google.com/mail/u/0/#inbox?compose", text: "Contact@Rachel.app" },
 ];
 
 export const platformLinks = [

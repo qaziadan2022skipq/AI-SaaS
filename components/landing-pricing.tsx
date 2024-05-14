@@ -1,6 +1,7 @@
 import { pricingOptions } from "@/constants/landing-page-constants";
 import { cn } from "@/lib/utils";
 import { CheckCircle2 } from "lucide-react";
+import Link from "next/link";
 
 
 const Pricing = () => {
@@ -33,12 +34,12 @@ const Pricing = () => {
                   </li>
                 ))}
               </ul>
-              <a
-                href={href}
+              <Link
+                href={option.href}
                 className={cn(option.title === "Rachel Pro" ? "inline-flex justify-center items-center text-center w-full h-12 p-5 mt-20 tracking-tight text-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 border border-y-purple-700 border-x-pink-600 rounded-lg transition duration-200" : "inline-flex justify-center items-center text-center w-full h-12 p-5 mt-20 tracking-tight text-xl hover:bg-gray-800 border  border-neutral-600 rounded-lg transition duration-200")}
               >
                {option.title === "Rachel Pro" ? "Subscribe" : "Try Now" } 
-              </a>
+              </Link>
             </div>
           </div>
         ))}

@@ -32,7 +32,7 @@ export const LandingHero = () => {
                 "Chat with Rachel",
                 "Easy Learning",
                 "Photo Generation",
-                "Cover Letter writing",
+                "Cover Letter Writing",
                 "Email Writing",
                 "Social Media Captions",
                 "Text to Speech",
