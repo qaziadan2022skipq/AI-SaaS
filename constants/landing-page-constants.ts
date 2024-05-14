@@ -140,11 +140,13 @@ export const pricingOptions = [
     title: "Rachel Free",
     price: "$0",
     features: ["Limited Usage", "No Support"],
+    href: "/sign-in"
   },
   {
     title: "Rachel Pro",
     price: "$20",
     features: ["Unlimited Usage", "Priority Support", "Exclusive Tools"],
+    href: "/sign-in"
   },
 ];
 
