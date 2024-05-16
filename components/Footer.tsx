@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { resourcesLinks, platformLinks, communityLinks } from "../constants/landing-page-constants";
-import { url } from "inspector";
 const Footer = () => {
   return (
-    <footer className="mt-20 border-t py-10 px-4 border-y-purple-500">
+    <footer className="mt-20 border-t py-10 px-4 border-y-gray-800">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         <div className="col-span-1 lg:col-span-2 pl-0 lg:pl-10">
           <h3 className="text-md font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-400 to-pink-600">Contact</h3>

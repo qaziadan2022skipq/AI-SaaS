@@ -12,7 +12,7 @@ export async function POST(req: Request) {
     try {
         const { userId } = auth();
         const body = await req.json();
-        const { messages, topic } = body;
+        const { messages } = body;
         console.log(messages[0].content)
 
         if (!userId) {
@@ -23,9 +23,6 @@ export async function POST(req: Request) {
         }
         if (!messages) {
             return new NextResponse("Messages are required", { status: 400 })
-        }
-        if (!topic) {
-            return new NextResponse("Topic is required", { status: 400 })
         }
 
         const freeTrail = await checkApiLimit()
@@ -40,8 +37,8 @@ export async function POST(req: Request) {
                 {
                     role: "system",
                     content: `
-                          You are Powerful assistant and your name is Rachel. Rely like a female
-                          You are the master of ${topic} and you have to answer like an expert 
+                          You are Powerful assistant and your name is Rachel. Rely like a female.
+                          You are an educational expert. Act like a professor and teach the user. 
                           Question is given below.
                           `,
                   },

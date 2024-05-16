@@ -1,19 +1,11 @@
 import * as z from "zod";
 
 export const formSchema = z.object({
-    emailTo: z.string().min(1, {
-        message: "Prompt is required"
+    emailSays: z.string().min(1, {
+        message: "Email Subject is required"
     }),
-    companyName: z.string().min(1, {
-        message: "Prompt is required"
+    recipent: z.string().min(1, {
+        message: "Recipent details is required"
     }),
-    companyDomain: z.string().min(1, {
-        message: "Tone is required"
-    }),
-    leaveDays: z.string().min(1, {
-        message: "Tone is required"
-    }),
-    reason: z.string().min(1, {
-        message: "Tone is required"
-    })
+    
 })

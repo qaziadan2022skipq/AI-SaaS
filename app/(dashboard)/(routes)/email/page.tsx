@@ -27,7 +27,7 @@ const EmailGenerator = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      emailTo: "",
+      emailSays: "",
     },
   });
 
@@ -36,16 +36,13 @@ const EmailGenerator = () => {
     try {
       const userMessage: ChatCompletionMessageParam = {
         role: "user",
-        content: values.emailTo,
+        content: values.emailSays,
       };
       console.log(userMessage);
       const newMessages = [userMessage, ...messages];
       const response = await axios.post("/api/email", {
         messages: newMessages,
-        companyName: values.companyName,
-        companyDomain: values.companyDomain,
-        leaveDays: values.leaveDays,
-        reason: values.reason
+        recipent: values.recipent,
       });
       setMessages((current) => [...current, userMessage, response.data]);
       form.reset();
@@ -84,14 +81,14 @@ const EmailGenerator = () => {
               "
             >
               <FormField
-                name="emailTo"
+                name="emailSays"
                 render={({ field }) => (
                   <FormItem className="col-span-12 lg:col-span-6  border-2 rounded-lg p-1">
                     <FormControl className="m-0 p-0">
                       <Input
                         className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                         disabled={isLoading}
-                        placeholder="Email to"
+                        placeholder="What should your email say ?"
                         {...field}
                       />
                     </FormControl>
@@ -99,66 +96,21 @@ const EmailGenerator = () => {
                 )}
               />
               <FormField
-                name="companyName"
+                name="recipent"
                 render={({ field }) => (
                   <FormItem className="col-span-12 lg:col-span-3  border-2 rounded-lg p-1">
                     <FormControl className="m-0 p-0">
                       <Input
                         className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                         disabled={isLoading}
-                        placeholder="Company Name "
+                        placeholder="Recipent's details"
                         {...field}
                       />
                     </FormControl>
                   </FormItem>
                 )}
               />
-              <FormField
-                name="companyDomain"
-                render={({ field }) => (
-                  <FormItem className="col-span-12 lg:col-span-3  border-2 rounded-lg p-1">
-                    <FormControl className="m-0 p-0">
-                      <Input
-                        className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
-                        disabled={isLoading}
-                        placeholder="Company Domain "
-                        {...field}
-                      />
-                    </FormControl>
-                  </FormItem>
-                )}
-              />
-              <FormField
-                name="leaveDays"
-                render={({ field }) => (
-                  <FormItem className="col-span-12 lg:col-span-3  border-2 rounded-lg p-1">
-                    <FormControl className="m-0 p-0">
-                      <Input
-                        className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
-                        disabled={isLoading}
-                        placeholder="No of leave days"
-                        {...field}
-                      />
-                    </FormControl>
-                  </FormItem>
-                )}
-              />
-              <FormField
-                name="reason"
-                render={({ field }) => (
-                  <FormItem className="col-span-12 lg:col-span-3  border-2 rounded-lg p-1">
-                    <FormControl className="m-0 p-0">
-                      
-                      <Input
-                        className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
-                        disabled={isLoading}
-                        placeholder="Reason to take leave"
-                        {...field}
-                      />
-                    </FormControl>
-                  </FormItem>
-                )}
-              />
+
               <Button
                 className="col-span-12 lg:col-span-12 w-full"
                 type="submit"
@@ -177,7 +129,7 @@ const EmailGenerator = () => {
             </div>
           )}
           {messages.length === 0 && !isLoading && (
-            <Empty label="No Caption generated yet!" />
+            <Empty label="No email generated yet!" />
           )}
           <div className="flex flex-col-reverse gap-y-4">
             {messages.map((message) => (

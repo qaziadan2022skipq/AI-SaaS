@@ -5,14 +5,16 @@ import { ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { tools } from "./constants";
+import Image from "next/image";
 
 const Dashboard = () => {
   const router = useRouter();
   return (
     <>
-      <div className="mb-8 space-y-4">
+      <div className="mb-8 flex flex-col items-center space-y-2">
+      <Image src="/RachelAvatar.png" width={100} height={100} alt="main" />
         <h2 className="text-2xl md:text-4xl font-bold text-center">
-        Hi I'm Rachel!
+        Hi I'm Rachel! 
         </h2>
         <p className="text-muted-foreground font-light text-small md:text-lg text-center">
           The Smartest AI Companion Here to Help You!

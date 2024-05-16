@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import {
   Dialog,
@@ -30,6 +31,8 @@ import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 import { error } from "console";
 import axios from "axios";
+import { redirect } from "next/navigation";
+import Link from "next/link";
 
 const tools = [
   {
@@ -101,19 +104,14 @@ const tools = [
 ];
 
 export const ProModal = () => {
-
   const proModal = useProModal();
   const [loading, setLoading] = useState(false);
 
   const onSubscribe = async () => {
     try {
-      const response = await axios.get("/api/stripe");
-      
-      window.location.href = response.data.url;
-      
-      setLoading(true);
-    } 
-    catch (error) {
+      redirect("/sign-in");
+      // setLoading(true);
+    } catch (error) {
       console.log("STRIPE_CLIENT_ERROR", error);
     } finally {
       setLoading(false);
@@ -154,13 +152,12 @@ export const ProModal = () => {
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
-          <Button 
-          className="w-full bg-purple-600"
-          onClick={onSubscribe}
-          >
-            Upgrade
-            <Zap className="w-4 h-4 ml-2 fill-white" />
-          </Button>
+          <Link href="/sign-in" className="w-full h-12 flex text-center justify-center rounded-xl text-white font-semibold items-center bg-gradient-to-r from-indigo-600 via-purple-400 to-pink-600">
+            {/* <Button className="w-full bg-purple-600" > */}
+              Upgrade
+              {/* <Zap className="w-4 h-4 ml-2 fill-white" /> */}
+            {/* </Button> */}
+          </Link>
         </DialogFooter>
       </DialogContent>
     </Dialog>

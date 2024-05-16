@@ -21,7 +21,7 @@ const LandingNavbar = () => {
           <Link href={"/"}>
           <div className="flex items-center flex-shrink-0">
             <Image className="h-10 w-10 mr-2" src={"/RachelAvatar.png"} width={100} height={100} alt="Logo" />
-            <span className="text-2xl tracking-tight font-extrabold text-white">Rachel</span>
+            <Image className="h-12 w-30 mr-2" src={"/rachelNew.png"} width={140} height={200} alt="Logo" />
           </div>
           </Link>
           <ul className="hidden lg:flex ml-14 space-x-12 text-white">

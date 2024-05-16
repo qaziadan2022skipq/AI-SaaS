@@ -27,7 +27,7 @@ const SubscriptionButton = ({isPro = false}: SubscriptionButtonProps) => {
   return (
     <Button 
     disabled={loading}
-    className={isPro ? "text-white" : "bg-pink-600 text-white items-center"}
+    className={isPro ? "text-white" : "bg-gradient-to-r from-indigo-600 via-purple-400 to-pink-600 text-white items-center"}
     onClick={onClick}
     >
         {isPro ? "Manage Subscription" : "Upgrade"}

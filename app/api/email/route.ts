@@ -11,7 +11,7 @@ export async function POST(req: Request) {
   try {
     const { userId } = auth();
     const body = await req.json();
-    const { messages, companyName, companyDomain, leaveDays, reason } = body;
+    const { messages, recipent } = body;
     console.log(messages[0].content);
 
     if (!userId) {
@@ -36,11 +36,11 @@ export async function POST(req: Request) {
           role: "system",
           content: `
                 You are Powerful assistant and your name is Rachel. Rely like a female
-                You are an experienced email writer and you have to write an email to ${messages[0].content} of company ${companyName} specialized in ${companyDomain}, the reason of for which the user wants to take holidays is ${reason} and no of holidays user want to take ${leaveDays} days
-                on the topic given below.
+                You are an experienced email writer and you have to write an email to ${recipent}
+                details for email are given below
                 `,
         },
-        // { role: "user", content: messages[0].content },
+        { role: "user", content: messages[0].content },
       ],
     });
     await increaseAPiLimit();

@@ -190,7 +190,7 @@ const ImageGeneration = () => {
             </div>
           )}
           {result.length === 0 && !isLoading && (
-            <Empty label="No Image Generated!" />
+            <Empty label="No Cover Letter Generated!" />
           )}
           <div className="">
             {result.length > 0 && (

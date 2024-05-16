@@ -25,14 +25,13 @@ const Conversation = () => {
   const router = useRouter();
   const [messages, setMessages] = useState<ChatCompletionMessageParam[]>([{
     role: "system",
-    content:"Hello I am Rachel, Ask anything...."
+    content:"Hi I'm Rachel! I can teach you any kind of subject."
   }]);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       prompt: "",
-      topic: ""
     },
   });
 
@@ -46,7 +45,7 @@ const Conversation = () => {
       console.log(userMessage);
       const newMessages = [userMessage, ...messages];
       const response = await axios.post("/api/easylearning", {
-        messages: newMessages, topic: values.topic
+        messages: newMessages
       });
       setMessages((current) => [...current, userMessage, response.data]);
       form.reset({prompt: ""})
@@ -85,21 +84,6 @@ const Conversation = () => {
                 gap-2
               "
             >
-              <FormField
-                name="topic"
-                render={({ field }) => (
-                  <FormItem className="col-span-12 lg:col-span-3">
-                    <FormControl className="m-0 p-0">
-                      <Input
-                        className="border-2 p-2 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
-                        disabled={isLoading}
-                        placeholder="Enter topic name e.g (medicine)"
-                        {...field}
-                      />
-                    </FormControl>
-                  </FormItem>
-                )}
-              />
               <FormField
                 name="prompt"
                 render={({ field }) => (
