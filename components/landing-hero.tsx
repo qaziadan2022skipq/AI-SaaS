@@ -28,15 +28,15 @@ export const LandingHero = () => {
           <TypewriterComponent
             options={{
               strings: [
-                "Chat with Rachel",
-                "Easy Learning",
-                "Photo Generation",
-                "Cover Letter Writing",
-                "Email Writing",
-                "Social Media Captions",
-                "Text to Speech",
-                "Music Generator",
-                "Video Generator"
+                "Chat with Rachel.",
+                "Easy Learning.",
+                "Photo Generation.",
+                "Cover Letter Writing.",
+                "Email Writing.",
+                "Social Media Captions.",
+                "Text to Speech.",
+                "Music Generator.",
+                "Video Generator."
               ],
               autoStart: true,
               loop: true,
