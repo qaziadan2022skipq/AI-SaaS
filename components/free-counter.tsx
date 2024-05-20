@@ -5,7 +5,7 @@ import { MAX_COUNTS_FREE } from "@/constants/db-constants";
 import { Progress } from "./ui/progress";
 import { Button } from "./ui/button";
 import { Zap } from "lucide-react";
-// import { useProModal } from "@/hooks/user-pro-modal";
+import { useProModal } from "@/hooks/user-pro-modal";
 import axios from "axios";
 
 interface FreeCounterProps {
@@ -17,18 +17,18 @@ const FreeCounter = ({
   apiLimitCount = 0,
   isPro = false,
 }: FreeCounterProps) => {
-  // const proModal = useProModal();
+  const proModal = useProModal();
   const [mounted, setMounted] = useState(false);
-  const onClick = async () => {
-    try{ 
-        const response = await axios.get("/api/stripe")
-        window.location.href = response.data.url
-    }catch(error) {
-        console.log("BILLING_ERROR", error)
-    }finally{
-        console.log("done")
-    }
-}
+  //   const onClick = async () => {
+  //     try{
+  //         const response = await axios.get("/api/stripe")
+  //         window.location.href = response.data.url
+  //     }catch(error) {
+  //         console.log("BILLING_ERROR", error)
+  //     }finally{
+  //         console.log("done")
+  //     }
+  // }
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -50,7 +50,7 @@ const FreeCounter = ({
             />
           </div>
           <Button
-            onClick={onClick}
+            onClick={proModal.open}
             className="w-full"
             variant={"premium"}
           >

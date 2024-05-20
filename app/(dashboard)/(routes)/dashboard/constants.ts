@@ -4,12 +4,12 @@ import {
     FileImage,
     ImageDownIcon,
     Mail,
-    MailCheckIcon,
+    // MailCheckIcon,
     MessageSquare,
-    Music,
+    // Music,
     PenIcon,
     SpeechIcon,
-    VideoIcon,
+    // VideoIcon,
   } from "lucide-react";
 
 export const tools = [
@@ -27,13 +27,13 @@ export const tools = [
       color: "text-orange-500",
       bgColor: "bg-orange-500/10",
     },
-    {
-      label: "Music Generation",
-      icon: Music,
-      href: "/music",
-      color: "text-emerald-500",
-      bgColor: "bg-emerald-500/10",
-    },
+    // {
+    //   label: "Music Generation",
+    //   icon: Music,
+    //   href: "/music",
+    //   color: "text-emerald-500",
+    //   bgColor: "bg-emerald-500/10",
+    // },
     {
       label: "Image Generation",
       icon: FileImage,
@@ -41,13 +41,13 @@ export const tools = [
       bgColor: "bg-pink-700/10",
       href: "/image",
     },
-    {
-      label: "Video Generation",
-      icon: VideoIcon,
-      color: "text-orange-700",
-      bgColor: "bg-orange-700/10",
-      href: "/video",
-    },
+    // {
+    //   label: "Video Generation",
+    //   icon: VideoIcon,
+    //   color: "text-orange-700",
+    //   bgColor: "bg-orange-700/10",
+    //   href: "/video",
+    // },
     {
       label: "Code Generation",
       icon: Code,
@@ -83,11 +83,11 @@ export const tools = [
       color: "text-cyan-700",
       bgColor: "bg-cyan-600/10",
     },
-    {
-        label: "Cover Letter ",
-        icon: MailCheckIcon,
-        href: "/coverletter",
-        color: "text-gray-500",
-        bgColor: "bg-gray-700/10",
-      },
+    // {
+    //     label: "Cover Letter ",
+    //     icon: MailCheckIcon,
+    //     href: "/coverletter",
+    //     color: "text-gray-500",
+    //     bgColor: "bg-gray-700/10",
+    //   },
   ];

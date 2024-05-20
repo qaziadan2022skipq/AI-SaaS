@@ -7,13 +7,13 @@ import {
   LayoutDashboard,
   Mail,
   MessageSquare,
-  Music,
+  // Music,
   PenIcon,
   Settings,
   SpeechIcon,
   ImageDownIcon,
-  VideoIcon,
-  MailCheckIcon,
+  // VideoIcon,
+  // MailCheckIcon,
   BookAIcon,
 } from "lucide-react";
 import { Montserrat } from "next/font/google";
@@ -49,18 +49,18 @@ const routes = [
     href: "/image",
     color: "text-pink-700",
   },
-  {
-    label: "Video Generation",
-    icon: VideoIcon,
-    href: "/video",
-    color: "text-orange-700",
-  },
-  {
-    label: "Music Generation",
-    icon: Music,
-    href: "/music",
-    color: "text-emeralt-500",
-  },
+  // {
+  //   label: "Video Generation",
+  //   icon: VideoIcon,
+  //   href: "/video",
+  //   color: "text-orange-700",
+  // },
+  // {
+  //   label: "Music Generation",
+  //   icon: Music,
+  //   href: "/music",
+  //   color: "text-emeralt-500",
+  // },
   {
     label: "Code Generation",
     icon: Code,
@@ -73,12 +73,12 @@ const routes = [
     href: "/socialmediaCaptions",
     color: "text-pink-400",
   },
-  {
-    label: "Cover Letter",
-    icon: MailCheckIcon,
-    href: "/coverletter",
-    color: "text-grey-500",
-  },
+  // {
+  //   label: "Cover Letter",
+  //   icon: MailCheckIcon,
+  //   href: "/coverletter",
+  //   color: "text-grey-500",
+  // },
   {
     label: "Email Writer",
     icon: Mail,
@@ -118,23 +118,20 @@ const Sidebar = ({ apiLimitCount = 0, isPro = false }: SideBarProps) => {
           href="/dashboard"
           className="flex items-center justify-center pl-3 mb-6"
         >
-          <div className="relative w-14 h-14">
+          <div className="relative w-10 h-10">
             <Image fill alt="Logo" src="/RachelAvatar.png" />
           </div>
           <div className="relative w-36 h-12 mr-4">
             <Image fill alt="Logo" src="/rachelNew.png" />
           </div>
-          {/* <h1
-            className={cn(
-              "text-2xl font-bold font-family",
-              monserrat.className
-            )}
-          >
-            Rachel
-          </h1> */}
         </Link>
       </div>
-      <div className={cn("space-y-1 overflow-scroll", isPro === false ? "h-[70%]": "")}>
+      <div
+        className={cn(
+          "space-y-1 overflow-scroll",
+          isPro === false ? "h-[70%]" : ""
+        )}
+      >
         {routes.map((route) => (
           <Link
             key={route.href}

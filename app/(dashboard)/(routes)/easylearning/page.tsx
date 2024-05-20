@@ -92,7 +92,7 @@ const Conversation = () => {
                       <Input
                         className="border-2 p-2 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                         disabled={isLoading}
-                        placeholder="Ask question about it!"
+                        placeholder="What do you want to learn about?"
                         {...field}
                       />
                     </FormControl>
@@ -117,7 +117,7 @@ const Conversation = () => {
             </div>
           )}
           {messages.length === 0 && !isLoading && (
-            <Empty label="No conversation started." />
+            <Empty label="No Conversation Started." />
           )}
           <div className="flex flex-col-reverse gap-y-4">
             {messages.map((message, index) => (

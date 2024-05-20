@@ -7,7 +7,7 @@ interface EmptyProps {
 export const Empty = ({ label }: EmptyProps) => {
   return (
     <div className="h-full flex flex-col items-center justify-center">
-      <div className="relative h-72 w-72">
+      <div className="relative h-52 w-52 mb-4">
         <Image
         alt="Empty"
         fill

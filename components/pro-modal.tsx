@@ -14,12 +14,12 @@ import {
   FileImage,
   ImageDownIcon,
   Mail,
-  MailCheckIcon,
+  // MailCheckIcon,
   MessageSquare,
-  Music,
+  // Music,
   PenIcon,
   SpeechIcon,
-  VideoIcon,
+  // VideoIcon,
   Zap,
 } from "lucide-react";
 
@@ -29,10 +29,8 @@ import { Badge } from "./ui/badge";
 import { Card } from "./ui/card";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
-import { error } from "console";
 import axios from "axios";
-import { redirect } from "next/navigation";
-import Link from "next/link";
+import { LoaderStripe } from "./loader-stripe";
 
 const tools = [
   {
@@ -47,24 +45,24 @@ const tools = [
     color: "text-orange-500",
     bgColor: "bg-orange-500/10",
   },
-  {
-    label: "Music Generation",
-    icon: Music,
-    color: "text-emerald-500",
-    bgColor: "bg-emerald-500/10",
-  },
+  // {
+  //   label: "Music Generation",
+  //   icon: Music,
+  //   color: "text-emerald-500",
+  //   bgColor: "bg-emerald-500/10",
+  // },
   {
     label: "Image Generation",
     icon: FileImage,
     color: "text-pink-700",
     bgColor: "bg-pink-700/10",
   },
-  {
-    label: "Video Generation",
-    icon: VideoIcon,
-    color: "text-orange-700",
-    bgColor: "bg-orange-700/10",
-  },
+  // {
+  //   label: "Video Generation",
+  //   icon: VideoIcon,
+  //   color: "text-orange-700",
+  //   bgColor: "bg-orange-700/10",
+  // },
   {
     label: "Code Generation",
     icon: Code,
@@ -95,12 +93,12 @@ const tools = [
     color: "text-cyan-700",
     bgColor: "bg-cyan-600/10",
   },
-  {
-    label: "Cover Letter ",
-    icon: MailCheckIcon,
-    color: "text-gray-500",
-    bgColor: "bg-gray-700/10",
-  },
+  // {
+  //   label: "Cover Letter ",
+  //   icon: MailCheckIcon,
+  //   color: "text-gray-500",
+  //   bgColor: "bg-gray-700/10",
+  // },
 ];
 
 export const ProModal = () => {
@@ -109,8 +107,9 @@ export const ProModal = () => {
 
   const onSubscribe = async () => {
     try {
-      redirect("/sign-in");
-      // setLoading(true);
+      setLoading(true);
+      const response = await axios.get("/api/stripe");
+      window.location.href = response.data.url;
     } catch (error) {
       console.log("STRIPE_CLIENT_ERROR", error);
     } finally {
@@ -152,12 +151,14 @@ export const ProModal = () => {
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
-          <Link href="/sign-in" className="w-full h-12 flex text-center justify-center rounded-xl text-white font-semibold items-center bg-gradient-to-r from-indigo-600 via-purple-400 to-pink-600">
-            {/* <Button className="w-full bg-purple-600" > */}
+          {!loading ? (
+            <Button className="w-full bg-purple-600" onClick={onSubscribe}>
               Upgrade
-              {/* <Zap className="w-4 h-4 ml-2 fill-white" /> */}
-            {/* </Button> */}
-          </Link>
+              <Zap className="w-4 h-4 ml-2 fill-white" />
+            </Button>
+          ) : (
+            <LoaderStripe />
+          )}
         </DialogFooter>
       </DialogContent>
     </Dialog>

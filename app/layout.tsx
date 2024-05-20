@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 
 import "./globals.css";
+import { ModalProvider } from "@/components/modal-provider";
 
 const inter = Poppins({ subsets: ["latin"], weight: "400" });
 
@@ -24,7 +25,10 @@ export default async function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          <ModalProvider />
+          {children}
+          </body>
       </html>
     </ClerkProvider>
   );

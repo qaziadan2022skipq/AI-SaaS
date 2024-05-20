@@ -18,16 +18,18 @@ import { Loader } from "@/components/loader";
 import { cn } from "@/lib/utils";
 import { UserAvatar } from "@/components/user-avatar";
 import { BotAvatar } from "@/components/bot-avatar";
+import { useProModal } from "@/hooks/user-pro-modal";
 
 const Conversation = () => {
   const router = useRouter();
   const [messages, setMessages] = useState<ChatCompletionMessageParam[]>([]);
+  const proModal = useProModal();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       prompt: "",
-      imageUrl: ""
+      imageUrl: "",
     },
   });
 
@@ -46,9 +48,10 @@ const Conversation = () => {
       });
       setMessages((current) => [...current, userMessage, response.data]);
       form.reset();
-    } catch (error) {
+    } catch (error: any) {
       // todo: Open Pro Modal
       console.log(error);
+      if (error.response.status === 403) proModal.open();
     } finally {
       router.refresh();
     }
@@ -86,9 +89,9 @@ const Conversation = () => {
                   <FormItem className="col-span-12 lg:col-span-6 border rounded-lg p-1">
                     <FormControl className="m-0 p-0">
                       <Input
-                        className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
+                        className="border-2 p-2 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                         disabled={isLoading}
-                        placeholder="what is in the picture?"
+                        placeholder="Ask a question about the image…"
                         {...field}
                       />
                     </FormControl>
@@ -101,7 +104,7 @@ const Conversation = () => {
                   <FormItem className="col-span-12 lg:col-span-6 border rounded-lg p-1">
                     <FormControl className="m-0 p-0">
                       <Input
-                        className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
+                        className="border-2 p-2 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                         disabled={isLoading}
                         placeholder="Paste the image url here!"
                         {...field}

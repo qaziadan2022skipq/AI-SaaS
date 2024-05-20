@@ -26,10 +26,12 @@ import { cn } from "@/lib/utils";
 import { UserAvatar } from "@/components/user-avatar";
 import { BotAvatar } from "@/components/bot-avatar";
 import Image from "next/image";
+import { useProModal } from "@/hooks/user-pro-modal";
 
 const ImageGeneration = () => {
   const router = useRouter();
   const [audio, setAudio] = useState("");
+  const proModal = useProModal();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -54,7 +56,8 @@ const ImageGeneration = () => {
       // const urls = response.data.data.map( (imageUrl: {url:string}) => imageUrl);
       // setImages(urls);
       form.reset();
-    } catch (error) {
+    } catch (error:any) {
+      if (error.response.status === 403) proModal.open();
       // todo: Open Pro Modal
       console.log(error);
     } finally {
@@ -98,7 +101,7 @@ const ImageGeneration = () => {
                       <Input
                         className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                         disabled={isLoading}
-                        placeholder="Paste the text here ..."
+                        placeholder="Paste the text here…"
                         {...field}
                       />
                     </FormControl>
