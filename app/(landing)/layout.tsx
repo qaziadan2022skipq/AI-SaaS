@@ -1,6 +1,5 @@
 import { ModalProvider } from "@/components/modal-provider";
 import { checkSubscription } from "@/lib/subscription";
-import { auth } from "@clerk/nextjs";
 
 const LandingPageLayout = async ({
     children
