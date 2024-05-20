@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 
@@ -10,6 +10,11 @@ export const metadata: Metadata = {
   title: "AI SaaS App",
   description: "Made By Qazi Adan",
 };
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  userScalable: false,
+}
 
 export default async function RootLayout({
   children,
