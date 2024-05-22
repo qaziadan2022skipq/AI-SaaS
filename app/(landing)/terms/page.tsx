@@ -53,7 +53,7 @@ const LandingPage = () => {
 11. Dispute Resolution
     • In the event of a dispute, efforts shall be made to resolve the matter amicably through informal negotiation. If unresolved, disputes shall be submitted to arbitration under the rules of the designated arbitral body in our jurisdiction.
 12. Contact Information
-    • If you have any questions about these Terms, please contact us at [Your Contact Information].
+    • If you have any questions about these Terms, please contact us at Contact@Rachel.app.
 13. Miscellaneous
     • If any provision of these Terms is held to be invalid or unenforceable, that provision will be enforced to the maximum extent permissible, and the other provisions of these Terms will remain in full force and effect.
 `}

@@ -13,33 +13,32 @@ export const LandingHero = () => {
   return (
     <div
       id="home"
-      className="mt-[4.5rem] lg:mt-0 text-white font-bold py-4 lg:py-2 space-y-5 lg:space-y-3 p-12 lg:p-14 text-center items-center"
+      className="mt-[2.1rem] lg:mt-0 text-white font-bold py-4 lg:py-2 space-y-5 lg:space-y-3 p-12 lg:p-14 text-center items-center"
     >
       <div className="text-4xl sm:text-2xl md:text-6xl lg:text-7xl space-y-5 lg:space-y-2 font-extrabold">
         <div className="flex flex-col items-center">
           <Image src="/RachelAvatar.png" width={250} height={250} alt="main" />
-          <h1 className="text-[#EEEEEE] font-bold mt-4">Meet Rachel</h1>
+          <h1 className="text-[#EEEEEE] font-bold mt-16 lg:mt-4">Meet Rachel</h1>
           <h1 className=" md:block text-xl lg:block lg:text-4xl text-white mt-2 ">
             Your AI Companion
           </h1>
-          <p className="text-lg mt-8 lg:mt-2 font-extralight text-neutral-400">
+          <p className="text-lg mt-8 lg:mt-6 font-extralight text-neutral-400">
             Enhance your personal life, business, and education with
           </p>
         </div>
 
-        <div className="text-4xl mt-6 lg:mt-0 md:text-5xl lg:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-400 to-pink-600">
+        <div className="text-[1.6rem] mt-6 lg:mt-0 md:text-5xl lg:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-400 to-pink-600">
           <TypewriterComponent
             options={{
               strings: [
                 "Chat with Rachel.",
                 "Easy Learning.",
                 "Photo Generation.",
-                "Cover Letter Writing.",
                 "Email Writing.",
                 "Social Media Captions.",
                 "Text to Speech.",
-                "Music Generator.",
-                "Video Generator.",
+                "Image Generation",
+                "Chat with Image"
               ],
               autoStart: true,
               loop: true,
