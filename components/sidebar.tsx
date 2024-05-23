@@ -112,7 +112,7 @@ interface SideBarProps {
 const Sidebar = ({ apiLimitCount = 0, isPro = false }: SideBarProps) => {
   const pathname = usePathname();
   return (
-    <div className="space-y-4 py-4 flex flex-col h-full bg-[#000000] rounded-br-xl rounded-tr-xl text-white drop-shadow-xl">
+    <div className="space-y-4 py-3 flex flex-col h-full bg-[#000000] rounded-br-xl rounded-tr-xl text-white drop-shadow-xl">
       <div className="px-3 py-2 flex-1">
         <Link
           href="/dashboard"

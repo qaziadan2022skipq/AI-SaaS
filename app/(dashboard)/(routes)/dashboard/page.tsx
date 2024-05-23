@@ -19,7 +19,7 @@ const Dashboard = () => {
           The Smartest AI Companion Here to Help You!
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 px-4 md:px-32">
+      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 px-4 md:px-32 overflow-scroll lg:overflow-hidden">
         {tools.map((tool, index) => (
           <div key={index}>
             <Card

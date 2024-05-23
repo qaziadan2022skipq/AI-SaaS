@@ -15,7 +15,7 @@ const LandingNavbar = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 py-3 backdrop-blur-lg border-b border-neutral-700/80">
+    <nav id="home" className="top-0 z-50 py-3 backdrop-blur-md border-b border-neutral-700/80">
       <div className="container px-4 mx-auto relative lg:text-sm">
         <div className="flex justify-between items-center">
           <Link href={"/"}>
