@@ -56,9 +56,9 @@ export const tools = [
       href: "/code",
     },
     {
-      label: "Social Media Captions",
+      label: "Social Captions",
       icon: PenIcon,
-      href: "/instagram_captions",
+      href: "/socialmediaCaptions",
       bgColor: "bg-pink-700/10",
       color: "text-pink-400",
     },

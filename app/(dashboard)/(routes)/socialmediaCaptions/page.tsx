@@ -60,7 +60,7 @@ const InstagramCaptionGenerator = () => {
   return (
     <div>
       <Heading
-        title="Social Media Captions Generation"
+        title="Social Captions"
         description="Create captions with descriptive text"
         icon={PenIcon}
         iconColor="text-pink-400"

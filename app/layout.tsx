@@ -11,7 +11,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "AI SaaS App",
+  title: "Rachel",
   description: "Made By Qazi Adan",
 };
 

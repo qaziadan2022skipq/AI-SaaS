@@ -68,7 +68,7 @@ const routes = [
     color: "text-green-700",
   },
   {
-    label: "Social Media Captions",
+    label: "Social Captions",
     icon: PenIcon,
     href: "/socialmediaCaptions",
     color: "text-pink-400",
