@@ -105,7 +105,7 @@ const Conversation = () => {
                 disabled={isLoading}
                 size="icon"
               >
-                Teach Me
+                Learn
               </Button>
             </form>
           </Form>
