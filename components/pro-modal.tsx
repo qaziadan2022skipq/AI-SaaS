@@ -70,7 +70,7 @@ const tools = [
     bgColor: "bg-green-700/10",
   },
   {
-    label: "Instagram Captions",
+    label: "Social Captions",
     icon: PenIcon,
     bgColor: "bg-pink-700/10",
     color: "text-pink-400",
@@ -124,7 +124,7 @@ export const ProModal = () => {
           <DialogTitle className="flex justify-center items-center flex-col gap-y-4 pb-2">
             <div className="flex items-center gap-x-2 font-bold py-1">
               Upgrade to Rachel
-              <Badge className=" uppercase text-sm py-1 bg-purple-600">
+              <Badge className=" uppercase text-sm py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
                 Pro
               </Badge>
             </div>
@@ -141,7 +141,7 @@ export const ProModal = () => {
                       <div className={cn("p-2 w-fit rounded-md", tool.bgColor)}>
                         <tool.icon className={cn("w-6 h-6", tool.color)} />
                       </div>
-                      <div className="font-semibold text-sm">{tool.label}</div>
+                      <div className="font-semibold text-[0.75rem]">{tool.label}</div>
                     </div>
                     <Check />
                   </Card>
@@ -152,7 +152,7 @@ export const ProModal = () => {
         </DialogHeader>
         <DialogFooter>
           {!loading ? (
-            <Button className="w-full bg-purple-600" onClick={onSubscribe}>
+            <Button variant={"premium"} className="w-full bg-purple-600" onClick={onSubscribe}>
               Upgrade
               <Zap className="w-4 h-4 ml-2 fill-white" />
             </Button>
