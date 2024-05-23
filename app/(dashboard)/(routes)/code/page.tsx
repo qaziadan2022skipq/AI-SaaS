@@ -58,7 +58,7 @@ const CodeGeneration = () => {
   return (
     <div>
       <Heading
-        title="Code Generation"
+        title="Code Generator"
         description="Write code with descriptive text"
         icon={Code}
         iconColor="text-green-700"

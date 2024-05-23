@@ -52,7 +52,7 @@ const tools = [
   //   bgColor: "bg-emerald-500/10",
   // },
   {
-    label: "Image Generation",
+    label: "Image Generator",
     icon: FileImage,
     color: "text-pink-700",
     bgColor: "bg-pink-700/10",
@@ -64,7 +64,7 @@ const tools = [
   //   bgColor: "bg-orange-700/10",
   // },
   {
-    label: "Code Generation",
+    label: "Code Generator",
     icon: Code,
     color: "text-green-700",
     bgColor: "bg-green-700/10",

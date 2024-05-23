@@ -78,7 +78,7 @@ export const features = [
   },
   {
     icon: "7",
-    text: "Social Media Caption Generator",
+    text: "Social Captions",
     description: "Generate attarctive and engaging social media captions.",
   },
   {

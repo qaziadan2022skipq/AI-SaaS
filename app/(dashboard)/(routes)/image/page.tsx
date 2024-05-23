@@ -64,7 +64,7 @@ const ImageGeneration = () => {
   return (
     <div>
       <Heading
-        title="Image Generation"
+        title="Image Generator"
         description="Generate an Image with text description"
         icon={ImageIcon}
         iconColor="text-pink-700"

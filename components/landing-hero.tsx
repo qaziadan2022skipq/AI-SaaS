@@ -35,8 +35,8 @@ export const LandingHero = () => {
               strings: [
                 "Chat with Rachel.",
                 "Easy Learning.",
-                "Code Generation.",
-                "Image Generation.",
+                "Code Generator.",
+                "Image Generator.",
                 "Email Writer.",
                 "Social Captions.",
                 "Text to Speech.",
