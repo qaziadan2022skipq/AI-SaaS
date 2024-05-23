@@ -117,7 +117,7 @@ const CodeGeneration = () => {
           {messages.length === 0 && !isLoading && (
             <Empty label="No Code Generated!" />
           )}
-          <div className="flex flex-col-reverse gap-y-4">
+          <div className="flex flex-col-reverse gap-y-4 overflow-scroll">
             {messages.map((message) => (
               <div
                 key={String(message.content)}
