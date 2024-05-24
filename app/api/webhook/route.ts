@@ -7,7 +7,7 @@ import Stripe from "stripe";
 export const maxDuration = 300;
 
 export async function POST(req: Request) {
-  const body = await req.text();
+  const {body} = await req.json();
   console.log("BODY: " + body + "TYPE" + typeof(body));
   const signature = headers().get("stripe-signature") as string;
   console.log("SIGN: " + signature);
@@ -16,7 +16,7 @@ export async function POST(req: Request) {
 
   try {
     event = stripe.webhooks.constructEvent(
-      body,
+      body.toString(),
       signature,
       process.env.STRIPE_WEBHOOK_SECRET!
     );
