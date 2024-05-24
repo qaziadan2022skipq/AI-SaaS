@@ -1,3 +1,5 @@
+
+
 import { auth, currentUser } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 import prismadb from "@/lib/prismadb";
@@ -62,3 +64,5 @@ export async function GET() {
     return new NextResponse("Internal error", { status: 500 });
   }
 }
+
+export const dynamic = 'force-dynamic'
