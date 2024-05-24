@@ -6,7 +6,7 @@ import Stripe from "stripe";
 
 export const maxDuration = 300;
 
-export async function POST(req: NextRequest) {
+export async function POST(req: Request) {
   const newBody = await req.json()
   console.log("NEW_BODY: "+newBody)
   const body = await req.text()
