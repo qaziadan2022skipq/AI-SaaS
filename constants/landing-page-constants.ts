@@ -50,7 +50,7 @@ export const features = [
     icon: `🤍`,
     text: "Chat with Rachel",
     description:
-      "Whether you need emotional support, help brainstorming business ideas, or assistance revising for your studies, you can count on Rachel to be there 24/7.",
+      "Whether you need a friend, help brainstorming business ideas, or assistance revising for your studies, you can count on Rachel to be there 24/7.",
   },
   {
     icon: "2",
