@@ -7,21 +7,21 @@ import Stripe from "stripe";
 export const maxDuration = 300;
 
 export async function POST(req: Request) {
-  const body = await req.text();
-  console.log("BODY: " + body)
+  const { body } = await req.json();
+  console.log("BODY: " + body);
   const signature = headers().get("stripe-signature") as string;
-  console.log("SIGN: " + signature)
+  console.log("SIGN: " + signature);
 
   let event: Stripe.Event;
 
   try {
     event = stripe.webhooks.constructEvent(
-      body,
+      JSON.stringify(body),
       signature,
       process.env.STRIPE_WEBHOOK_SECRET!
     );
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return new NextResponse(`WebHook Error : ${error}`, { status: 400 });
   }
 
