@@ -8,9 +8,7 @@ export const maxDuration = 300;
 
 export async function POST(req: Request) {
   const body = await req.text()
-  console.log("BODY: " + body)
-  const signature = headers().get("stripe-signature") as string;
-  console.log("SIGN: " + signature);
+  const signature = headers().get("Stripe-Signature") as string;
 
   let event: Stripe.Event;
 
