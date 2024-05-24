@@ -3,12 +3,12 @@ import { stripe } from "@/lib/stripe";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
+import {buffer} from "micro";
 
 export const maxDuration = 300;
 
-export async function POST(req: Request) {
-  const {body} = await req.json();
-  console.log("BODY: " + body + "TYPE" + typeof(body));
+export async function POST(req: any) {
+  const requestBuffer = await buffer(req)
   const signature = headers().get("stripe-signature") as string;
   console.log("SIGN: " + signature);
 
@@ -16,7 +16,7 @@ export async function POST(req: Request) {
 
   try {
     event = stripe.webhooks.constructEvent(
-      body.toString(),
+      requestBuffer,
       signature,
       process.env.STRIPE_WEBHOOK_SECRET!
     );
