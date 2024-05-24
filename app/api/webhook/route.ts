@@ -7,7 +7,7 @@ import Stripe from "stripe";
 export const maxDuration = 300;
 
 export async function POST(req: Request) {
-  const body = await req.text();
+  const body = await req.json();
   const signature = headers().get("stripe-signature") as string;
 
   let event: Stripe.Event;
