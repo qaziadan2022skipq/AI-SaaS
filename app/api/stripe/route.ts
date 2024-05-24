@@ -3,9 +3,10 @@ import { NextResponse } from "next/server";
 import prismadb from "@/lib/prismadb";
 import { stripe } from "@/lib/stripe";
 
-import { absoluteUrl } from "@/lib/utils";
+import { absoluteUrl } from "@/lib/utils"
 
 const settingsUrl = absoluteUrl("/settings") as string;
+const dashboardUrl = absoluteUrl("/dashboard") as string
 
 export async function GET() {
   try {
@@ -29,7 +30,7 @@ export async function GET() {
     }
 
     const stripeSession = await stripe.checkout.sessions.create({
-        success_url: settingsUrl,
+        success_url: dashboardUrl,
         cancel_url: settingsUrl,
         mode: "subscription",
         billing_address_collection: "auto",
