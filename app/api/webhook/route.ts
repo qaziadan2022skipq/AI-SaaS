@@ -1,14 +1,12 @@
 import prismadb from "@/lib/prismadb";
 import { stripe } from "@/lib/stripe";
 import { headers } from "next/headers";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
 export const maxDuration = 300;
 
 export async function POST(req: Request) {
-  const newBody = await req.json()
-  console.log("NEW_BODY: "+newBody)
   const body = await req.text()
   console.log("BODY: " + body)
   const signature = headers().get("stripe-signature") as string;
