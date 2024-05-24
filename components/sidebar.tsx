@@ -128,8 +128,8 @@ const Sidebar = ({ apiLimitCount = 0, isPro = false }: SideBarProps) => {
       </div>
       <div
         className={cn(
-          "space-y-1 overflow-scroll",
-          isPro === false ? "h-[70%]" : ""
+          "space-y-1 overflow-scroll px-2",
+          isPro === false ? "h-[70%]" : "h-full"
         )}
       >
         {routes.map((route) => (

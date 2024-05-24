@@ -6,7 +6,6 @@ import { Progress } from "./ui/progress";
 import { Button } from "./ui/button";
 import { Zap } from "lucide-react";
 import { useProModal } from "@/hooks/user-pro-modal";
-import axios from "axios";
 
 interface FreeCounterProps {
   apiLimitCount: number;
@@ -19,16 +18,6 @@ const FreeCounter = ({
 }: FreeCounterProps) => {
   const proModal = useProModal();
   const [mounted, setMounted] = useState(false);
-  //   const onClick = async () => {
-  //     try{
-  //         const response = await axios.get("/api/stripe")
-  //         window.location.href = response.data.url
-  //     }catch(error) {
-  //         console.log("BILLING_ERROR", error)
-  //     }finally{
-  //         console.log("done")
-  //     }
-  // }
   useEffect(() => {
     setMounted(true);
   }, []);
