@@ -4,7 +4,7 @@ import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
-export const maxDuration = 900;
+export const maxDuration = 300;
 
 export async function POST(req: Request) {
   const body = await req.text()
