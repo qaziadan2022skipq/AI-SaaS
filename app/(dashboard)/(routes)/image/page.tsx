@@ -2,9 +2,9 @@
 
 import * as z from "zod";
 import Heading from "@/components/heading";
-import { Download, ImageIcon } from "lucide-react";
+import { Download, EyeIcon, ImageIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
-import { formSchema, } from "./constants";
+import { formSchema } from "./constants";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -31,7 +31,7 @@ import { useProModal } from "@/hooks/user-pro-modal";
 const ImageGeneration = () => {
   const router = useRouter();
   const [images, setImages] = useState<string[]>([]);
-  const proModal = useProModal()
+  const proModal = useProModal();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -45,13 +45,14 @@ const ImageGeneration = () => {
     try {
       setImages([]);
       const response = await axios.post("/api/image", values);
-      const urls = response.data.map((img : {url: string}) => img.url)
-      setImages(urls)
+      const urls = response.data.map((img: { url: string }) => img.url);
+      setImages(urls);
+      console.log(images);
 
       // const urls = response.data.data.map( (imageUrl: {url:string}) => imageUrl);
       // setImages(urls);
       form.reset();
-    } catch (error:any) {
+    } catch (error: any) {
       // todo: Open Pro Modal
       if (error.response.status === 403) proModal.open();
       console.log(error);
@@ -135,8 +136,8 @@ const ImageGeneration = () => {
                     variant="secondary"
                     className="w-full"
                   >
-                    <Download className="h-4 w-4 mr-2" />
-                    Download
+                    <EyeIcon className="h-4 w-4 mr-2" />
+                    View Image
                   </Button>
                 </CardFooter>
               </Card>
