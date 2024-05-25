@@ -1,4 +1,5 @@
 import { checkApiLimit, increaseAPiLimit } from "@/lib/api-limit";
+import { checkSubscription } from "@/lib/subscription";
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 import OpenAI from "openai/index.mjs";
@@ -31,8 +32,9 @@ export async function POST(req: Request) {
       return new NextResponse("Resolution is required", { status: 400 });
     }
     const freeTrail = await checkApiLimit();
+    const isPro = await checkSubscription();
 
-    if (!freeTrail) {
+    if (!freeTrail && !isPro) {
       return new NextResponse("Free Trail has expired", { status: 403 });
     }
 
@@ -42,7 +44,9 @@ export async function POST(req: Request) {
       size: resolution,
       model: "dall-e-3",
     });
-    await increaseAPiLimit();
+    if (!isPro) {
+      await increaseAPiLimit();
+    }
     return NextResponse.json(response.data, { status: 200 });
   } catch (error) {
     console.log("[IMAGE_ERROR]", error);

@@ -1,4 +1,5 @@
 import { checkApiLimit, increaseAPiLimit } from "@/lib/api-limit";
+import { checkSubscription } from "@/lib/subscription";
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 import OpenAI from "openai/index.mjs";
@@ -26,10 +27,10 @@ export async function POST(req: Request) {
     if (!imageUrl) {
       return new NextResponse("ImageUrl is required", { status: 400 });
     }
-
     const freeTrail = await checkApiLimit();
+    const isPro = await checkSubscription();
 
-    if (!freeTrail) {
+    if (!freeTrail && !isPro) {
       return new NextResponse("Free Trail has expired", { status: 403 });
     }
 
@@ -50,8 +51,10 @@ export async function POST(req: Request) {
         },
       ],
     });
+    if (!isPro) {
+      await increaseAPiLimit();
+    }
 
-    await increaseAPiLimit();
     console.log(response);
     return NextResponse.json(response.choices[0].message, { status: 200 });
   } catch (error) {

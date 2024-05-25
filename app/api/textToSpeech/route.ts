@@ -4,6 +4,7 @@ import OpenAI from "openai/index.mjs";
 import path from "path";
 import fs from "fs";
 import { checkApiLimit, increaseAPiLimit } from "@/lib/api-limit";
+import { checkSubscription } from "@/lib/subscription";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -30,8 +31,9 @@ export async function POST(req: Request) {
       return new NextResponse("Resolution is required", { status: 400 });
     }
     const freeTrail = await checkApiLimit();
+    const isPro = await checkSubscription();
 
-    if (!freeTrail) {
+    if (!freeTrail && !isPro) {
       return new NextResponse("Free Trail has expired", { status: 403 });
     }
 
@@ -41,7 +43,9 @@ export async function POST(req: Request) {
       input: prompt,
     });
     const buffer = Buffer.from(await response.arrayBuffer()).toString("base64");
-    await increaseAPiLimit();
+    if (!isPro) {
+      await increaseAPiLimit();
+    }
     return NextResponse.json(buffer, { status: 200 });
   } catch (error) {
     console.log("[TEXT_TO_SPEECH_ERROR]", error);
