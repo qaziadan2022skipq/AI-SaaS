@@ -1,6 +1,6 @@
 import {
   BookAIcon,
-    Code,
+    // Code,
     FileImage,
     ImageDownIcon,
     Mail,
@@ -8,6 +8,7 @@ import {
     MessageSquare,
     // Music,
     PenIcon,
+    SmileIcon,
     SpeechIcon,
     // VideoIcon,
   } from "lucide-react";
@@ -48,12 +49,19 @@ export const tools = [
     //   bgColor: "bg-orange-700/10",
     //   href: "/video",
     // },
+    // {
+    //   label: "Code Generator",
+    //   icon: Code,
+    //   color: "text-green-700",
+    //   bgColor: "bg-green-700/10",
+    //   href: "/code",
+    // },
     {
-      label: "Code Generator",
-      icon: Code,
+      label: "Explore Feelings",
+      icon: SmileIcon,
       color: "text-green-700",
       bgColor: "bg-green-700/10",
-      href: "/code",
+      href: "/explorefeeling",
     },
     {
       label: "Social Captions",

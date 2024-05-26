@@ -10,7 +10,7 @@ import {
 import {
   BookAIcon,
   Check,
-  Code,
+  // Code,
   FileImage,
   ImageDownIcon,
   Mail,
@@ -18,6 +18,7 @@ import {
   MessageSquare,
   // Music,
   PenIcon,
+  SmileIcon,
   SpeechIcon,
   // VideoIcon,
   Zap,
@@ -64,8 +65,8 @@ const tools = [
   //   bgColor: "bg-orange-700/10",
   // },
   {
-    label: "Code Generator",
-    icon: Code,
+    label: "Explore Feelings",
+    icon: SmileIcon,
     color: "text-green-700",
     bgColor: "bg-green-700/10",
   },

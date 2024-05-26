@@ -67,9 +67,9 @@ export const features = [
 
   {
     icon: "3",
-    text: "Code Generator",
+    text: "Explore Feelings",
     description:
-      "Produce tailored code snippets to speed up your tech projects.",
+      "Share and express emotions, fostering self-understanding.",
   },
   {
     icon: "4",

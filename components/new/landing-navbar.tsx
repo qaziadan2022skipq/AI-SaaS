@@ -20,7 +20,7 @@ const LandingNavbar = () => {
         <div className="flex justify-between items-center">
           <Link href={"/"}>
           <div className="flex items-center flex-shrink-0">
-            <Image className="h-12 w-12 mr-1" src={"/RachelAvatar.png"} width={100} height={100} alt="Logo" />
+            <Image className="h-12 w-12 mr-1" src={"/NewAvatar.png"} width={100} height={100} alt="Logo" />
             <Image className="h-12 w-30" src={"/rachelNew.png"} width={140} height={200} alt="Logo" />
           </div>
           </Link>

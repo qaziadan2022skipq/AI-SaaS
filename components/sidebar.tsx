@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import {
-  Code,
+  // Code,
   ImageIcon,
   LayoutDashboard,
   Mail,
@@ -15,6 +15,7 @@ import {
   // VideoIcon,
   // MailCheckIcon,
   BookAIcon,
+  SmileIcon,
 } from "lucide-react";
 import { Montserrat } from "next/font/google";
 import Image from "next/image";
@@ -62,9 +63,9 @@ const routes = [
   //   color: "text-emeralt-500",
   // },
   {
-    label: "Code Generator",
-    icon: Code,
-    href: "/code",
+    label: "Explore Feelings",
+    icon: SmileIcon,
+    href: "/explorefeeling",
     color: "text-green-700",
   },
   {
@@ -119,7 +120,7 @@ const Sidebar = ({ apiLimitCount = 0, isPro = false }: SideBarProps) => {
           className="flex items-center justify-center pl-3 mb-6"
         >
           <div className="relative w-10 h-10">
-            <Image fill alt="Logo" src="/RachelAvatar.png" />
+            <Image fill alt="Logo" src="/NewAvatar.png" />
           </div>
           <div className="relative w-36 h-12 mr-4">
             <Image fill alt="Logo" src="/rachelNew.png" />
