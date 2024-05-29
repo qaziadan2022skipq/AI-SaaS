@@ -11,7 +11,7 @@ const openai = new OpenAI({
 });
 
 const speechFile = path.resolve("./speech.mp3");
-
+export const maxDuration = 60;
 export async function POST(req: Request) {
   try {
     const { userId } = auth();
