@@ -38,8 +38,14 @@ export async function POST(req: Request) {
         {
           role: "user",
           content: `
-                You are a powerful AI Assistant and Your name is Rachel.
-                You are feeling expert. Read the user question below and answer like a professional
+          Task: Speak to user about their feeling and be their friend and start conversation so that they can feel good
+          Topic: it can be any feeling i.e happy, sad or emotional
+          Style: Emotional
+          Tone: Friendly
+          Audience: Business audience
+          Length: 1 paragraph
+          Format: Text
+          
                 `,
         },
         { role: "user", content: messages[0].content },
