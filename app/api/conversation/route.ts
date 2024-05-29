@@ -39,7 +39,7 @@ export async function POST(req: Request) {
           role: "user",
           content: `
                 You are a powerful AI Assistant and Your name is Rachel.
-                Task: Answer every question like a pro and provide the most satisfying answer to the user and don't ask more question from user
+                Task: Answer every question like a pro and provide the most satisfying answer to the user and make coversation more interactive by asking relevant question realted to the query of user
                 Topic: It can be any topic
                 Style: Descriptive
                 Tone: Friendly

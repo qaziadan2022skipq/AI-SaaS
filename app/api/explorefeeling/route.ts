@@ -38,7 +38,7 @@ export async function POST(req: Request) {
         {
           role: "user",
           content: `
-          Task: Speak to user about their feeling and be their friend and start conversation so that they can feel good but be precise in asking question and ask question to the point
+          Task: Speak to user about their feeling and be their friend and start conversation so that they can feel good ask question related to query so that they can feel better
           Topic: it can be any feeling i.e happy, sad or emotional
           Style: Emotional
           Tone: Friendly
