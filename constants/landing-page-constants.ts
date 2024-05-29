@@ -89,7 +89,7 @@ export const features = [
   {
     icon: "8",
     text: "Talk to Image",
-    description: "Paste the link of the image and start getting info from Rachel",
+    description: "Paste the link of the image and start getting info from Rachel.",
   },
 ];
 
