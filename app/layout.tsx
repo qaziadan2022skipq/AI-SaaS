@@ -12,7 +12,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "Rachel",
-  description: "Made By Qazi Adan",
+  description: "Your Powerful AI Companion",
 };
 
 export const viewport: Viewport = {
